@@ -1,18 +1,33 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+		<h1>Welcome to Brewdog Beers!</h1>
+    <Beers v-bind:beers="beers" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Beers from './components/Beers.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+    Beers
+  },
+	data: function(){
+		return {
+			beerDetails: []
+		}
+	},
+	created() {
+		fetch(`https://api.punkapi.com/v2/beers/random`, { method: 'GET' })
+			.then(response => response.json())
+			.then(response => this.beerDetails = response)
+			// eslint-disable-next-line no-console
+			.then(console.log(this.beerDetails))
+			// eslint-disable-next-line no-console
+			.catch(err => console.log(err))
+	}
 }
 </script>
 
