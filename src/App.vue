@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-		<h1>Welcome to Brewdog Beers!</h1>
-    <Beers v-bind:beers="beers" />
+		<header id="header">
+			<img id="bulldog-image" src="./assets/bulldog.jpeg">
+			<h1>Welcome to Brewdog Beers!</h1>
+			<img id="bulldog-image" src="./assets/bulldog.jpeg">
+		</header>
+    <Beers v-bind:Beers="Beers" />
   </div>
 </template>
 
@@ -14,20 +17,6 @@ export default {
   components: {
     Beers
   },
-	data: function(){
-		return {
-			beerDetails: []
-		}
-	},
-	created() {
-		fetch(`https://api.punkapi.com/v2/beers/random`, { method: 'GET' })
-			.then(response => response.json())
-			.then(response => this.beerDetails = response)
-			// eslint-disable-next-line no-console
-			.then(console.log(this.beerDetails))
-			// eslint-disable-next-line no-console
-			.catch(err => console.log(err))
-	}
 }
 </script>
 
@@ -39,5 +28,14 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#header {
+	display: flex;
+	justify-content: center;
+}
+
+#bulldog-image {
+	height: 100px;
 }
 </style>
