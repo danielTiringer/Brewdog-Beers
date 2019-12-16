@@ -1,13 +1,16 @@
 import axios from 'axios';
 
-let url = `https://api.punkapi.com/v2/beers`;
+const axiosInstance = axios.create({
+	baseUrl: `https://api.punkapi.com/v2/beers`
+})
+
 
 class BeerService {
 	// Get Posts
 	static getBeers() {
 		return new Promise(async (resolve, reject) => {
 			try {
-				const response = await axios.get(`${url}?per_page=200`);
+				const response = await axiosInstance.get(`?per_page=200`);
 				resolve(response.data);
 				// eslint-disable-next-line no-console
 			} catch(error) {
@@ -23,7 +26,7 @@ class BeerService {
 		});
 		return new Promise(async (resolve, reject) => {
 			try {
-				const response = await axios.get(`${url}`);
+				const response = await axiosInstance.get(``);
 				resolve(response.data);
 				// eslint-disable-next-line no-console
 			} catch(error) {
