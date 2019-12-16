@@ -1,6 +1,13 @@
 <template>
 	<div class="container">
 		<p class="error" v-if="error">{{ error }}</p>
+		<form class="search" action="" method="GET">
+			<label for="food">Recommendation with food</label>
+			<input type="text" id="food" name="food">
+			<label for="food">Beer Name</label>
+			<input type="text" id="food" name="food">
+			<button class="submit" id="#submit-new-post" type="submit">Submit</button>
+		</form>
 		<div class="beer" v-bind:key="beer.id" v-for="beer in beers">
 			<div class="wrapper">
 				<figure class="front">
