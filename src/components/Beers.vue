@@ -13,7 +13,7 @@
 				</figure>
 				<figure class="back">
 					<p><b>Name:</b> {{ beer.name }}</p>
-					<p><b>Description:</b> {{ beer.description }}</p>
+					<p class="description"><b>Description:</b> {{ beer.description }}</p>
 					<p><b>Recommended with these dishes:</b></p>
 					<ul class="food-pairing">
 						<!-- eslint-disable-next-line -->
@@ -67,7 +67,7 @@ export default {
 .beer {
 	display: flex;
 	flex-direction: column;
-	height: 580px;
+	height: 550px;
 	margin: 40px;
 	width: 220px;
 }
@@ -99,8 +99,14 @@ export default {
 }
 
 .beer-image {
-	height: 300px;
+	height: 275px;
 }
+
+.description {
+	max-height: 300px;
+	overflow-y: auto;
+}
+
 
 .shopping-area {
 	display: flex;
